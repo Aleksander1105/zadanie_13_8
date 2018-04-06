@@ -1,6 +1,15 @@
 var http = require('http');
 var fs = require('fs');
 
+ var mimeTypes = {
+      "html": "text/html",
+      "jpeg": "image/jpeg",
+      "jpg": "image/jpeg",
+      "png": "image/png",
+      "js": "text/javascript",
+      "css": "text/css"
+    };
+
 var server = http.createServer();
 
 server.on('request', function (request, response) {
@@ -15,7 +24,7 @@ server.on('request', function (request, response) {
     } else {
         response.statusCode = 404;
         response.write('<h1>404: Zła ścieżka!</h1>');
-        response.write("<img src='./f_u.jpg'>");
+        response.write('<img src="f_u.jpg">');
         response.end();
     }
 });
